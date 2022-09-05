@@ -1,0 +1,1158 @@
+:root {
+    --main-color: rgb(136, 5, 7);
+    --main-fade: rgba(225, 16, 16, 0.5);
+    --primary-color: rgb(231, 139, 139);
+    --notification-indecator-color: transparent;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border-style: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+nav {
+    position: absolute;
+    top: 10px;
+    width: 96%;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+nav span {
+    padding: 0 10px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul a:hover {
+    border-bottom: 3px solid;
+    transition: all ease-in 0.5s;
+}
+
+#hero-section {
+    background: url('../img/hero-bg.jpg');
+    height: 100vh;
+    width: 100%;
+    /* background-position: 0%; */
+    background-position: top !important;
+    background-size: 100%;
+    /* background-size: 2000px; */
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+    #hero-section {
+        background-size: 1500px;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #hero-section {
+        background-size: 3000px;
+    }
+}
+
+@media screen and (max-width: 829px) {
+    #hero-section {
+        background-size: 1500px;
+    }
+    /* } */
+}
+
+@media screen and (max-width: 425px) {
+    #hero-section {
+        background-size: 1500px;
+    }
+}
+
+.text-over-image {
+    /* position: absolute; */
+    background-color: var(--main-fade);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+}
+
+.text-over-image i {
+    font-size: 50px;
+    padding: 0;
+    margin: 0;
+}
+
+.text-over-image button {
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.535);
+}
+
+.text-over-image button:hover {
+    background-color: rgb(250, 250, 250);
+    /* content: '>>>'; */
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.761);
+}
+
+.text-over-image button:active {
+    /* content: '>>>'; */
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.322);
+}
+
+
+/* === Login page === */
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 3;
+    font-size: 20px;
+    border: solid;
+    padding: 5px 8px;
+    border-radius: 50%;
+}
+
+.back-btn a {
+    text-decoration: none;
+    color: black;
+}
+
+.back-btn:hover {
+    background-color: #fff;
+}
+
+.main-div {
+    display: flex;
+    width: 100%;
+}
+
+.main-div .image-div {
+    background-image: url('/img/neew.jpg');
+    height: 100vh;
+    width: 50%;
+    background-position: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.form-div {
+    /* border: solid; */
+    padding: 0 20px;
+}
+
+.form-div.login-form {
+    height: 100vh;
+    width: 50%;
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+}
+
+.form-div.login-form .input-div,
+
+/* .dashboard-form .textarea-div, */
+
+.form-div.login-form button {
+    margin: 20px 0;
+}
+
+.dashboard-form.finance-form .input-div,
+.dashboard-form.finance-formbutton,
+.dashboard-form.finance-form .textarea-div {
+    margin: 20px 0 3px 0;
+}
+
+.form-div .input-div,
+.dashboard-form .textarea-div {
+    margin: 10px 0;
+    /* border: solid 1px; */
+    background-color: #fff;
+    /* width: 300px; */
+    display: flex;
+}
+
+.form-div .input-div label {
+    margin: auto 10px;
+}
+
+.form-div .textarea-div .text-arear-lable {
+    margin: 10px;
+}
+
+.form-div .textarea-div textarea,
+.form-div .input-div input {
+    border: none;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+}
+
+.form-div .input-div input[type='radio'] {
+    width: auto;
+    /* padding: 10px 1px; */
+}
+
+.input-div.category-div label,
+.input-div.progress-div label {
+    margin: 15px 10px;
+    /* display: block;   */
+}
+
+.form-div .form-btn,
+.finance-submit-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    color: white;
+    background-color: var(--main-color);
+}
+
+.form-div.login-form .form-btn {
+    background-color: rgb(255 255 255);
+    color: var(--primary-color);
+    cursor: pointer;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 54%);
+}
+
+.form-div.login-form .form-btn:hover {
+    background-color: rgb(250, 250, 250);
+    /* content: '>>>'; */
+    box-shadow: 1px 1px 15px rgb(0 0 0 / 76%);
+}
+
+.form-div.login-form .form-btn:active {
+    /* content: '>>>'; */
+    box-shadow: 1px 1px 2px rgb(0 0 0 / 32%);
+}
+
+.finance-submit-button:disabled {
+    background-color: var(--main-fade);
+}
+
+.form-div a {
+    color: #ddd;
+}
+
+@media screen and (max-width: 730px) {
+    .back-btn {
+        top: 38px;
+        font-size: 16px;
+        border: solid;
+        padding: 5px 8px;
+    }
+    .main-div {
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    .form-div.login-form {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        background-color: var(--main-fade);
+    }
+    .form-div .input-div {
+        /* border: solid 1px; */
+        background-color: #fff;
+        margin: 20px 0;
+        width: 100%;
+        display: flex;
+    }
+    .form-div .input-div i {
+        padding: 0 5px;
+    }
+    .main-div .image-div {
+        width: 100%;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .main-div {
+        flex-wrap: wrap;
+    }
+    .main-div .image-div {
+        width: 500px;
+    }
+}
+
+
+/* === Dashboard === */
+
+.top-nav,
+.page-body-wrapper .side-nav {
+    background: var(--main-color);
+    position: fixed;
+    z-index: 2;
+}
+
+.top-nav {
+    background-color: var(--primary-color);
+    color: #fff;
+    height: 70px;
+    top: 0;
+    width: 100%;
+    display: flex;
+}
+
+.logo {
+    margin: auto 10px;
+    margin-right: auto;
+    font-size: 20px;
+}
+
+.top-nav i {
+    margin: auto 15px;
+}
+
+.notification-icon {
+    position: relative;
+}
+
+.notification-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    margin-top: -1px;
+    margin-left: -5px;
+    top: 0;
+    /* remove the color then use js to added it when they is notification */
+    background-color: var(--notification-indecator-color);
+    border-radius: 50%;
+}
+
+.mobile-menu-btn {
+    display: none;
+    margin: auto 15px;
+}
+
+#desktop-menu-btn {
+    margin: auto 15px;
+    display: inline-block;
+}
+
+
+/* top text */
+
+.head-text {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+/* Notification pop up */
+
+.notification-div {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid var(--main-fade);
+    position: fixed;
+    top: 70;
+    right: 0;
+    width: 0;
+    height: 100px;
+    max-width: 300px;
+    transition: width ease-in-out 0.5s;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.notification-div .notification-message,
+.notification-div .close-notification {
+    color: #ddd;
+    margin: 5px;
+}
+
+
+/* .notification-div .message {
+} */
+
+
+/* Notification pop up end */
+
+.page-body-wrapper {
+    margin-top: 70px;
+    display: flex;
+    position: relative;
+}
+
+.page-body-wrapper .side-nav {
+    width: 200px;
+    height: 100%;
+    font-weight: 900;
+    /* border: solid; */
+    left: 0;
+}
+
+.page-body-wrapper .side-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page-body-wrapper .side-nav ul li {
+    /* border: solid; */
+    display: flex;
+}
+
+.page-body-wrapper .side-nav ul li a {
+    /* border: solid; */
+    width: 100%;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+
+/* .page-body-wrapper .side-nav ul li i, */
+
+.page-body-wrapper .side-nav ul li a {
+    padding: 0 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.page-body-wrapper .side-nav ul li a.active,
+.page-body-wrapper .side-nav ul li a:hover,
+.page-body-wrapper .side-nav ul li a:focus {
+    color: var(--primary-color);
+}
+
+.page-body-wrapper .side-nav ul li i {
+    /* border: solid; */
+    width: 55px;
+    height: 55px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.page-body-wrapper main,
+footer {
+    margin-left: 200px;
+}
+
+.page-body-wrapper main {
+    width: 100%;
+    height: auto;
+}
+
+.page-body-wrapper main .row {
+    --bs-gutter-x: 0;
+}
+
+.main-dashboard-page i {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-menu-btn {
+        margin: auto 15px;
+        display: inline-block;
+    }
+    #desktop-menu-btn {
+        display: none;
+    }
+    .logo {
+        margin: auto 15px;
+        margin-right: auto;
+        font-size: 20px;
+    }
+    .page-body-wrapper main,
+    footer {
+        margin-left: 55px;
+    }
+    .page-body-wrapper main {
+        width: 100%;
+        /* height: 3000vh; */
+        padding-left: 5px;
+    }
+}
+
+.main-card {
+    background-color: rgb(237 237 237 / 49%);
+    padding: 20px 10px;
+    border-radius: 20px;
+    max-width: 400px;
+    margin: 10px auto;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+    position: relative;
+}
+
+@media screen and (max-width: 1024px) {
+    .main-card {
+        max-width: 330px;
+    }
+}
+
+.main-card:hover {
+    box-shadow: 1px 1px 10px rgba(230, 26, 26, 0.322);
+}
+
+.top-card .main-card {
+    max-width: 200px;
+}
+
+.top-card .btn {
+    background-color: var(--main-color);
+    color: #fff;
+    font-size: 13px;
+    padding: 5px 10px;
+}
+
+.main-card p {
+    margin: 5px 0;
+}
+
+.fancy-btn {
+    color: #fff;
+    background-color: var(--main-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 0px 20px;
+}
+
+@media screen and (max-width: 370px) {
+    .fancy-btn.long-text {
+        padding: 8px 8px;
+    }
+}
+
+.dashbord-todo-col .main-card {
+    /* background-color: #fff; */
+    /* margin: 10px; */
+    /* height: 3px; */
+    /* overflow: hidden; */
+    /* position: relative; */
+    padding-bottom: 10px;
+}
+
+.dashbord-todo-col .todo-div {
+    background-color: #fff;
+    margin: 10px;
+    height: 255px;
+    margin-bottom: 60px;
+    overflow: hidden;
+    overflow-y: scroll;
+    /* position: relative; */
+}
+
+.list-item {
+    /* max-height: 250px; */
+    /* overflow: hidden;
+  overflow-y: scroll; */
+    padding: 0;
+}
+
+.list-item li {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+}
+
+
+/* .list-item li:hover { */
+
+
+/* background-color: rgb(249 249 249); */
+
+
+/* } */
+
+.list-item li span,
+.list-item li i {
+    margin: auto 5px;
+    padding: 0;
+}
+
+.list-item li span i.fa-trash:hover {
+    color: red;
+}
+
+.list-item li input[type='checkbox'] {
+    margin: auto 5px;
+}
+
+.form-check-label {
+    display: inline-flex;
+}
+
+.form-check-label input {
+    margin: auto;
+}
+
+
+/* Customize the label (the container) */
+
+.done-check {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    /* margin-bottom: 12px; */
+    cursor: pointer;
+    /* font-size: 22px; */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default checkbox */
+
+.done-check input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+
+/* Create a custom checkbox */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #eee;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.done-check:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.done-check input:checked~.checkmark {
+    background-color: var(--main-color);
+}
+
+
+/* Create the checkmark/indicator (hidden when not checked) */
+
+.checkmark:after {
+    content: '';
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the checkmark when checked */
+
+.done-check input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the checkmark/indicator */
+
+.done-check .checkmark:after {
+    left: 9px;
+    top: 7px;
+    width: 7px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.dashbord-todo-send-form {
+    display: flex;
+    border-top: 1px solid #000;
+    padding: 10px;
+    /* margin: 0 10px; */
+    /* background-color: rgb(237 237 237 / 49%); */
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    width: 100%;
+}
+
+.dashbord-todo-send-form input {
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px;
+    background-color: transparent;
+    outline: none;
+}
+
+.dashbord-todo-send-form button {
+    border: none;
+    font-size: 20px;
+    background-color: transparent;
+}
+
+.social-main-card .list-item {
+    min-height: 303px;
+    overflow: auto;
+}
+
+.full-main-card {
+    max-width: 1000px;
+    margin: 15px auto;
+}
+
+.chat-row .full-main-card {
+    height: 500px;
+    padding-bottom: 50px;
+}
+
+.chat-row #container-project,
+.chat-row #container-finance {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.chat-row path[fill='#ffffff'] {
+    display: none;
+}
+
+footer {
+    font-size: 10px;
+}
+
+@media screen and (max-width: 768px) {
+    .main-card {
+        max-width: 280px;
+    }
+    .full-main-card {
+        margin: 10px 15px;
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .main-card {
+        max-width: 280px;
+    }
+    .full-main-card {
+        margin: 10px 5px 10px 0;
+        max-width: none;
+    }
+    .full-main-card {
+        margin: 15px auto;
+    }
+    .chat-row .full-main-card {
+        height: 300px;
+        padding-bottom: 50px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .full-main-card {
+        margin: 15px auto;
+    }
+    .chat-row .full-main-card {
+        height: 250px;
+        padding-bottom: 50px;
+    }
+}
+
+.completed {
+    font-weight: bolder;
+    text-decoration: line-through;
+    text-decoration-color: var(--main-color);
+    /* background-color: var(--main-fade); */
+}
+
+
+/*  ====== Reminder ======*/
+
+.time {
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.hms {
+    font-size: 50px;
+    font-weight: 200;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.322);
+}
+
+.ampm {
+    font-size: 20px;
+}
+
+.date {
+    font-size: 16px;
+}
+
+
+/* .top-nav-time { */
+
+
+/* display: flex;
+  flex-direction: column; */
+
+
+/* } */
+
+.top-nav-time .time {
+    /* color: red; */
+    color: var(--main-color);
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.322);
+}
+
+.top-nav-time .hms {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.top-nav-time .ampm {
+    font-size: 8px;
+}
+
+.top-nav-time .date {
+    font-size: 10px;
+}
+
+.hms,
+.ampm,
+.date {
+    /* margin: auto 0; */
+    padding: 0;
+    margin: 0;
+}
+
+
+/* ------------------------------------------------------------- */
+
+
+/* ====== count down ====== */
+
+.count-down-main-card {
+    max-width: none;
+    margin-right: 25px;
+}
+
+.count-down-time-div {
+    color: var(--primary-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.count-down-time-div h1 {
+    font-weight: bold;
+    color: var(--main-color);
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.count-down-time-div ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.count-down-time-div li {
+    font-size: 16px;
+    list-style-type: none;
+    padding: 4px 7px;
+    text-transform: uppercase;
+}
+
+.count-down-time-div li span {
+    display: block;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+@media all and (max-width: 881px) {
+    .count-down-main-card {
+        max-width: 400px;
+        margin: auto;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .count-down-time-div h1 {
+        font-size: 20px;
+    }
+    .count-down-time-div li {
+        font-size: 13px;
+        padding: 6px;
+    }
+    .count-down-time-div li span {
+        font-size: 18px;
+    }
+}
+
+
+/* --------------------------------------------------------- */
+
+
+/* Reminder todo */
+
+.form-div.dashboard-form {
+    height: auto;
+    width: 100%;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 408px) {
+    .form-div.dashboard-form {
+        width: auto;
+        position: static;
+        z-index: 1;
+    }
+    .form-div.dashboard-form .input-div,
+    .form-div.dashboard-form .textarea-div {
+        /* border: solid 1px; */
+        /* margin: 0; */
+        /* width: 233px; */
+        display: flex;
+    }
+    .form-div.dashboard-form .input-div input,
+    .form-div.dashboard-form .textarea-div textarea {
+        border: none;
+        padding: 10px;
+        /* border: none; */
+        /* border: solid 1px rgb(255 0 0); */
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .form-div.dashboard-form {
+        width: auto;
+        position: static;
+        z-index: 1;
+    }
+    .form-div.dashboard-form .input-div,
+    .form-div.dashboard-form .textarea-div {
+        /* border: solid 1px; */
+        /* margin: 0; */
+        /* width: 230px; */
+        display: flex;
+    }
+    .form-div.dashboard-form .input-div input,
+    .form-div.dashboard-form .textarea-div textarea {
+        border: none;
+        padding: 10px;
+        /* border: none; */
+        /* border: solid 1px rgb(255 0 0); */
+        width: 100%;
+        /* max-width: 170px; */
+    }
+}
+
+
+/* reminder todo div */
+
+.reminder-event-div,
+.reminder-task-div {
+    /* border: solid 1px; */
+    background-color: #fff;
+    padding: 10px 20px;
+    height: 300px;
+    overflow-y: scroll;
+}
+
+.reminder-event-div ul,
+.reminder-task-div ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.reminder-event-div ul .event-list,
+.reminder-task-div ul .task-list {
+    position: relative;
+    margin: 10px 0;
+    border-bottom: 1px solid var(--main-color);
+}
+
+.reminder-event-div ul .event-list .icon-div,
+.reminder-task-div ul .task-list .icon-div {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.reminder-event-div ul .event-list .icon-div i,
+.reminder-task-div ul .task-list .icon-div i {
+    padding: 5px;
+}
+
+
+/*  */
+
+.history-list {
+    height: 250px;
+    overflow-y: scroll;
+}
+
+.history-list .record {
+    height: 50px;
+    margin: 10px 0;
+    overflow: hidden;
+    cursor: pointer;
+    border-bottom: var(--main-color) solid 1px;
+}
+
+
+/* ====== project ===== */
+
+.project-form-image-div {
+    border: solid 1px var(--main-color);
+    /* width: 100%; */
+}
+
+.project-form-image {
+    border: solid 1px var(--primary-color);
+    width: 100%;
+}
+
+@media (max-width: 320px) {
+    .input-div.progress-div label {
+        font-size: 14px;
+        /* color: red; */
+    }
+}
+
+.input-div.image-upload {
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 190px;
+    width: 100%;
+    overflow: scroll;
+}
+
+.input-div.image-upload i {
+    font-size: 40px;
+    text-align: center;
+}
+
+.input-div.image-upload i p {
+    font-size: 12px;
+    line-height: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+}
+
+.input-div.image-upload input {
+    display: none;
+}
+
+.input-div.image-upload img {
+    width: 100%;
+}
+
+
+/* project-show */
+
+.project-show {
+    flex-wrap: wrap;
+}
+
+.project-show .main-card {
+    max-width: none;
+    /* width: 100%; */
+    margin: 10px auto;
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.project-show .main-card .img-div {
+    width: 50%;
+    margin-right: 10px;
+    display: flex;
+}
+
+.project-show .main-card img {
+    margin: auto 0;
+    width: 100%;
+    max-height: 300px;
+    max-width: 600px;
+}
+
+.project-show .text-div {
+    margin: auto 0;
+    width: 50%;
+    font-size: 16px;
+}
+
+@media (max-width: 615px) {
+    .project-show .main-card {
+        flex-wrap: wrap;
+    }
+    .project-show .main-card .img-div {
+        width: 100%;
+    }
+    .project-show .text-div {
+        width: 100%;
+        /* text-align: center; */
+        margin-top: 10px;
+    }
+}
+
+.project-form-div-row {
+    height: 0;
+    overflow: hidden;
+}
+
+#add-project:checked~.project-form-div-row {
+    height: auto;
+}
+
+.record-count {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 0px 5px;
+    border-radius: 5px;
+}
