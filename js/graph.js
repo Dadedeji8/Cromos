@@ -11,6 +11,7 @@ anychart.onDocumentReady(function() {
         { x: "Jul", value: 2 },
         { x: "Aug", value: 15 },
         { x: "Sep", value: 10 },
+        { x: "Sep", value: 22 },
     ]);
 
     // set chart type
