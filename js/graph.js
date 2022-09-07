@@ -15,12 +15,12 @@ anychart.onDocumentReady(function() {
     ]);
 
     // set chart type
-    var chart = anychart.area();
+    var chart = anychart.line();
 
     chart.title("Cromos Token Value");
 
     // set data
-    var area = chart.splineArea(data);
+    var area = chart.line(data);
 
     // set container and draw chart
     chart.container("container").draw();
