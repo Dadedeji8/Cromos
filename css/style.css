@@ -140,11 +140,12 @@ nav ul a:hover {
 
 .back-btn a {
     text-decoration: none;
-    color: black;
+    color: rgb(252, 244, 244);
 }
 
 .back-btn:hover {
-    background-color: #fff;
+    background-color: rgb(84, 4, 4);
+    color: rgb(103, 7, 7);
 }
 
 .main-div {
