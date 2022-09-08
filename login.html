@@ -2,17 +2,10 @@
 <html lang="en">
 
 <head>
+    <title>Login V2</title>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Login page for Mi_Records app">
-    <link rel="icon" type="image/png" href="./favicon-32x32.png">
-    <title>login</title>
-    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="./assets/fontawesome-icons/css/all.css">
-
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="/img/CM.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
     <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -31,79 +24,80 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
     <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/logincss/util.css">
+    <link rel="stylesheet" type="text/css" href="css/logincss/login.css">
+    <!--===============================================================================================-->
 </head>
 
 <body>
-    <div class="back-btn">
-        <a href="./index.html" class="fas fa-arrow-left" type='button' style="color: white;"><span style="display:none">Back button</span></a>
-    </div>
-    <main class="main-div">
-        <div class="form-div login-form" style="background-color: rgb(156, 7, 7);">
-            <h1 class="red" style="color: rgb(255, 255, 255);"> <i class="fas fa-lock"></i> CROMOS</h1>
-            <form action="">
-                <div class="wrap-input100 validate-input input-div" data-validate="Valid email is: a@b.c">
-                    <label for="email"><span class="fa fa-mail-bulk"></span> </label> <input class="input100" type="text" name="email" placeholder="email">
-                    <span class="focus-input100" data-placeholder="Email"></span>
-                </div>
 
-                <div class="wrap-input100 validate-input input-div" data-validate="Enter password">
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form">
+                    <span class="login100-form-title p-b-26">
+						Cromos
+					</span>
+                    <span class="login100-form-title p-b-48">
+						<i class="zmdi zmdi-font"></i>
+					</span>
 
-                    <label for="password"><i class="zmdi zmdi-eye fa fa-key"></i></label>
-
-                    <input class="input100" type="password" name="pass" placeholder="password">
-                    <span class="focus-input100" data-placeholder="Password"></span>
-                </div>
-
-                <div>
-                    <label>
-                        <input type="checkbox" name="" id=""> Remeber Me
-                    </label>
-                </div>
-
-                <div class="container-login100-form-btn">
-                    <div class="wrap-login100-form-btn">
-                        <div class="login100-form-bgbtn"></div>
-                        <button class="login100-form-btn  form-btn" style="border-radius: 20px;">
-                            <i class="fas fa-unlock-alt"></i>
-                            Login
-                        </button>
+                    <div class="wrap-input100 validate-input" data-validate="Valid email is: a@b.c">
+                        <input class="input100" type="text" name="email">
+                        <span class="focus-input100" data-placeholder="Email"></span>
                     </div>
-                </div>
 
-                <p style="color: white;">
-                    Don't Have An Account? <a href="./reg.html ">Create Account</a> <i class="fas fa-spiner "></i>
-                </p>
-                <!-- <p>
-                    class="form-btn" style="border-radius: 20px;"
+                    <div class="wrap-input100 validate-input" data-validate="Enter password">
+                        <span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+                        <input class="input100" type="password" name="pass">
+                        <span class="focus-input100" data-placeholder="Password"></span>
+                    </div>
 
-                     <i class="fas fa-unlock-alt"></i>
+                    <div class="container-login100-form-btn">
+                        <div class="wrap-login100-form-btn">
+                            <div class="login100-form-bgbtn"></div>
+                            <button class="login100-form-btn">
+								Login
+							</button>
+                        </div>
+                    </div>
 
-                    Go to <a href="./dashboard.html "><i class="fas fa-tachometer-alt "></i> Dashboard</a>
-                </p> -->
+                    <div class="text-center p-t-115">
+                        <span class="txt1">
+							Don’t have an account?
+						</span>
+
+                        <a class="txt2" href="./reg.html">
+							Sign Up
+						</a>
+                    </div>
+                </form>
+            </div>
         </div>
-        </form>
-        </div>
-        <div class="image-div ">
+    </div>
 
-        </div>
-    </main>
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/bootstrap/js/popper.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/daterangepicker/moment.min.js"></script>
+    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="js/authentication.js"></script>
 
 </body>
-<script src="./js/authentication.js"></script>
-<script src="./js/jquery/jquery.min.js"></script>
-<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/animsition/js/animsition.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/bootstrap/js/popper.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/daterangepicker/moment.min.js"></script>
-<script src="vendor/daterangepicker/daterangepicker.js"></script>
-<!--===============================================================================================-->
-<script src="vendor/countdowntime/countdowntime.js"></script>
 
 </html>
