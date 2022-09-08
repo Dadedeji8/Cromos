@@ -13,6 +13,25 @@
 
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="/img/CM.png" type="image/x-icon">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="css/util.css">
 </head>
 
 <body>
@@ -23,31 +42,43 @@
         <div class="form-div login-form" style="background-color: rgb(156, 7, 7);">
             <h1 class="red" style="color: rgb(255, 255, 255);"> <i class="fas fa-lock"></i> CROMOS</h1>
             <form action="">
-                <div class="input-div">
-                    <label for="email"><i class="fas fa-at"></i></label>
-                    <input type="email" id="email" placeholder="Email">
+                <div class="wrap-input100 validate-input input-div" data-validate="Valid email is: a@b.c">
+                    <label for="email"><span class="fa fa-mail-bulk"></span> </label> <input class="input100" type="text" name="email" placeholder="email">
+                    <span class="focus-input100" data-placeholder="Email"></span>
+                </div>
 
+                <div class="wrap-input100 validate-input input-div" data-validate="Enter password">
+
+                    <label for="password"><i class="zmdi zmdi-eye fa fa-key"></i></label>
+
+                    <input class="input100" type="password" name="pass" placeholder="password">
+                    <span class="focus-input100" data-placeholder="Password"></span>
                 </div>
-                <div class="input-div">
-                    <label for="password"><i class="fa fa-key"></i
-                        style="color: rgb(156, 7, 7);"></label>
-                    <input type="password" id="password" placeholder="password">
-                </div>
+
                 <div>
                     <label>
                         <input type="checkbox" name="" id=""> Remeber Me
                     </label>
                 </div>
-                <div>
-                    <button class="form-btn" style="border-radius: 20px;">
-                        <i class="fas fa-unlock-alt"></i>
-                        Login</button>
+
+                <div class="container-login100-form-btn">
+                    <div class="wrap-login100-form-btn">
+                        <div class="login100-form-bgbtn"></div>
+                        <button class="login100-form-btn  form-btn" style="border-radius: 20px;">
+                            <i class="fas fa-unlock-alt"></i>
+                            Login
+                        </button>
+                    </div>
                 </div>
 
                 <p style="color: white;">
                     Don't Have An Account? <a href="./reg.html ">Create Account</a> <i class="fas fa-spiner "></i>
                 </p>
                 <!-- <p>
+                    class="form-btn" style="border-radius: 20px;"
+
+                     <i class="fas fa-unlock-alt"></i>
+
                     Go to <a href="./dashboard.html "><i class="fas fa-tachometer-alt "></i> Dashboard</a>
                 </p> -->
         </div>
@@ -59,5 +90,20 @@
     </main>
 
 </body>
+<script src="./js/authentication.js"></script>
+<script src="./js/jquery/jquery.min.js"></script>
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="vendor/countdowntime/countdowntime.js"></script>
 
 </html>
