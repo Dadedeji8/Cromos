@@ -33,13 +33,20 @@ anychart.onDocumentReady(function() {
 
 // valueInput = document.getElementById('valueInput')
 
+
+const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const d = new Date();
+let nameDate = month[d.getMonth()];
+console.log(typeof nameDate)
+
+
+
 // updateValue = document.getElementById('updateValue')
 function addPoint() {
     // first index for new point
     newIndex = (data.mapAs().getRowsCount()) + 1;
     dateInput = document.getElementById('dateInput')
-    month = dateInput.value
-
+    Month = dateInput.value
 
     valueInput = document.getElementById('valueInput')
 
@@ -49,12 +56,15 @@ function addPoint() {
         // append data
     data.append({
         // x value
-        x: month + " " + newIndex,
-
+        // x: month + " " + newIndex,
+        x: nameDate,
         // random value from 1 to 100
         value: numValue
     });
 };
+
+
+
 
 
 //
