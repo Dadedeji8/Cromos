@@ -20,7 +20,7 @@
     <main class="main-div">
         <div class="form-div login-form">
             <h1 style="color: white;"> <i class="fas fa-address-book"></i> Sign-up</h1>
-            <form action="">
+            <form id="registerForm">
                 <div class="input-div">
                     <label for="name"><i class="fas fa-user"></i></label>
                     <input type="text" id="name" placeholder="Fullname">
@@ -63,7 +63,71 @@
     </main>
 
 </body>
+<!-- cookies library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 <script>
+
+    // function cookies() {
+    //     // // set a cookie
+    //     // Cookies.set('cookie_name', 'cookie_value', { expires: 365 });
+    //     // // get a cookie
+    //     // Cookies.get('cookie_name'); // => 'value'
+    //     // // delete a cookies
+    //     // Cookies.remove('cookie_name');
+    // }
+    async function registerFunction(e) {
+        e.preventDefault()
+
+        const formInput =  e.target
+
+        if (formInput[0].value === ""){
+            return console.log("FullName is Empty")
+        }
+        if (formInput[1].value === ""){
+            return console.log("Email is Empty")
+        }
+        if (formInput[2].value === ""){
+            return console.log("Contact is Empty")
+        }
+        if (formInput[3].value === ""){
+            return console.log("Password is Empty")
+        }
+        if (formInput[3].value !== formInput[4].value){
+            return console.log("Password not match")
+        }
+        // console.dir(formInput)
+        const formData = {
+            "email": "admin@gmail.com",
+            "fullName": "User Account",
+            "userName": "User test1",
+            "phoneNumber": "07533913243",
+            "password": "1234",
+            // na only admin you go add this privilege for
+            // "privilege": "2"
+        }
+
+        try {
+
+
+            const rawResponse = await fetch('http://localhost:5000/api/user/register', {
+                method: "POST",
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+            });
+            const content = await rawResponse.json();
+
+            window.location.replace("/dashboard.html");
+        } catch (error) {
+
+            console.log(error);
+        }
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', (e) => registerFunction(e))
 </script>
+
 
 </html>

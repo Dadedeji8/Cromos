@@ -6,21 +6,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="/favicon-32x32.png">
-    <title>Welcome</title>
+    <title>Cromos/dashboard</title>
     <link rel="stylesheet" href="assets/fontawesome-icons/css/all.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link href="css/anychart-ui.min.css" rel="stylesheet" type="text/css">
     <link href="css/anychart-font.min.css" rel="stylesheet" type="text/css">
-    <link rel="shortcut icon" href="./img/CM.png" type="image/x-icon">
-</head>
-<style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 
-</style>
+    <script async type="module">
+
+// // this is to check if you are login if no it will redirect you to the login page
+// const cromos_user =JSON.parse( Cookies.get('cromos_user'))
+
+// if(cromos_user=== ""|| cromos_user === undefined){
+//     alert('No access, Login first')
+//     window.location.replace('/login')
+//     // return
+// }
+// // place it in the DOM
+// document.getElementById("userName").innerHTML= cromos_user.profile.userName || "Users"
+// console.log("cromos_user", cromos_user)
+    </script>
+</head>
 
 <body>
     <!-- Startic top nav -->
-    <div class="top-nav" style=" background-color: rgb(156, 7, 7);">
+    <div class="top-nav">
         <div class="logo">
             <span><img src="./img/CM.png" alt="" height="40px">Cromos</span>
             <i class="fas fa-ellipsis-h" id="desktop-menu-btn"></i>
@@ -38,11 +50,11 @@
     </div>
 
     <div class="page-body-wrapper">
-        <div class="side-nav" style="background-color: rgb(156, 7, 7);;margin-right: 10px">
+        <!-- side nav -->
+        <div class="side-nav">
             <ul>
-                <li><a href="dashboard.html" class="active"><i class="fas fa-tachometer-alt"></i> <span
-                            class="nav-link-name">
-                            Dashboard</span></a>
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span class="nav-link-name">
+                Dashboard</span></a>
                 </li>
                 <li>
                     <a href="notification.html"> <i class="fas fa-book"></i> <span class="nav-link-name">Notifications</span></a>
@@ -56,225 +68,258 @@
                 </li>
             </ul>
         </div>
-        <main class="main-div main-dashboard-page">
+        <main class="main-dashboard-page">
+
             <!-- Notification pop up -->
-            <div class="notification-div">
+            <!-- <div class="notification-div">
                 <i class="fa fa-times close-notification" aria-hidden="true"></i>
                 <div class="notification-message">
-                    Notification From Admin
-                </div>
-            </div>
-
-
+                    Urgent Notification pop up
+                </div> 
+            </div>-->
             <!-- Notification pop up end -->
+            <style>
+                .chart-div {
+                    /* border: solid; */
+                    height: 400px;
+                }
 
-            <div class="col-12 d-flex justify-content-around container-fluid w-100 ">
-                <div class="my-auto lead main-card w-100 justify-content-between"><span class="fa fa-user"></span> John Doe
-                    <h1 class="d-none d-sm-inline head-text">Dashboard</h1>
-                    <div class="card-title">
-                        <h3>Wallet:<span class="text-sucess">$</span><span>0.0</span></h3>
+                .anychart-credits {
+                    display: none;
+                }
+                .amount{
+                    border: solid 1px #ddd;
+                    display: flex;
+                    justify-content: center;
+                    font-weight: 700;
+                    width: 70px;
+                    text-align: center;
+                    margin: 0 ;
+                    padding: 0 ;
+                }.amount::before{
+                    content: '$';
+                    margin-right: 3px;
+                }
+            </style>
+
+            <!--=========================================================== All element must be in here ===========================================================-->
+            <div class="row my-5">
+                <div class="col-md-12 d-flex justify-content-around">
+                    <div class=""><span id="userName">UserName</span>
+                        <h1 class="d-none d-sm-inline head-text">Dashboard</h1>
                     </div>
-                </div>
-
-
-            </div>
-
-    </div>
-
-    <div id="container" class="container main-card full-main-card" style="height: 600px;"></div>
-    <div class="card">
-        <div class="container container-fluid py5">
-            <div class="card border-danger bg-danger" width="300px">
-
-                <div class="card-body">
-                    <h1 class="card-title ">Cromos Token</h4>
-                        <p class="card-text lead">0.76 <span class="fa fa-arrow-up text-success "></span></p>
-                        <button class="btn btn-secondary rounded-pill">
-                            Mineable 
-                    </button>
-                        <button class="btn btn-secondary rounded-pill">
-                        poW
-                </button>
-                        <button class="btn btn-secondary rounded-pill">
-                    Smart Contract 
-            </button>
-                        <button class="btn btn-secondary rounded-pill">
-                Market 
-        </button>
+                    <div class="amount main-card">00.0</div>
                 </div>
             </div>
-        </div>
-
-        <div class="container container-fluid py-5">
-            <div class="row justify-content-center align-items-center g-5">
-                <div class="col">
-                    <div class="card bg-info text-light">
-
-                        <div class="card-body"><span class="fab fa-ethereum fa-2x "></span>
-                            <h4 class="card-title">$1,588</h4>
-                            <p class="card-text">Eth</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col ">
-                    <div class="card bg-warning text-light p-3">
-                        <span class="fab fa-bitcoin fa-2x"></span>
+            <!-- chart -->
+            <div id="container" class="container chart-div"></div>
+            <!-- chart end -->
+            <!-- cards div -->
+            <div class="row top-card">
+                <div class="col-sm-4">
+                    <div class="main-card text-center">
+                        <i class="fa fa-2x fa-dog"></i>
                         <h4 class="card-title">$19,727.80</h4>
-                        <p class="card-text">TP</p>
+                        <b class="card-text">DGE</b>
                     </div>
                 </div>
-                <div class="table-responsive-sm">
-                    <table class="table table-striped-columns
-                    table-hover	
-                    table-borderless
-                    table-primary
-                    align-middle">
-                        <thead class="table-light">
-                            <caption>Value Staged on Market</caption>
-                            <tr>
-                                <th>Month</th>
-                                <th>Value</th>
-                                <th>State</th>
-                            </tr>
-                        </thead>
-                        <tbody class="table-group-divider">
-                            <tr class="table-primary">
-                                <td scope="row">August</td>
-                                <td>0.11%</td>
-                                <td><span class="fa fa-arrow-down text-danger"></span></td>
-                            </tr>
-                            <tr class="table-primary">
-                                <td scope="row">September</td>
-                                <td>0.21</td>
-                                <td><span class="fa fa-arrow-up text-success"></span></td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-
-                        </tfoot>
-                    </table>
+                <div class="col-sm-4">
+                    <div class="main-card text-center">
+                        <i class="fab fa-bitcoin fa-2x"></i>
+                        <h4 class="card-title">$19,727.80</h4>
+                        <b class="card-text">TP</b>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="main-card text-center">
+                        <i class="fab fa-ethereum fa-2x "></i>
+                            <h4 class="card-title">$1,588</h4>
+                            <b class="card-text">Eth</b>
+                    </div>
                 </div>
 
             </div>
-            <div class="container row m-auto">
-                <div class="card text-white bg-secondary text-center col-3">
-                    <span class="fab fa-2x fa-ethereum"></span>
+            <!-- card div ends -->
+
+            <!-- <> -->
+
+            <div class="container container-fluid py-3">
+                <div class="card border-danger bg-danger" width="300px">
+    
                     <div class="card-body">
-                        <h4 class="card-title">Eth</h4>
-                        <p class="card-text">
-                            <a href="#"></a>validate Token Sale</p>
+                        <h1 class="card-title ">Cromos Token</h4>
+                            <p class="card-text lead">0.76 <span class="fa fa-arrow-up text-success "></span></p>
+                            <button class="btn btn-secondary rounded-pill">
+                                Mineable 
+                        </button>
+                            <button class="btn btn-secondary rounded-pill">
+                            poW
+                    </button>
+                            <button class="btn btn-secondary rounded-pill">
+                        Smart Contract 
+                </button>
+                            <button class="btn btn-secondary rounded-pill">
+                    Market 
+            </button>
                     </div>
                 </div>
-                <div class="card text-white bg-warning text-center col-3">
-                    <span class="fab fa-2x fa-bitcoin"></span>
-                    <div class="card-body">
-                        <h4 class="card-title">Btc</h4>
-                        <p class="card-text">
-                            <a href="#"></a>validate Token Sale</p>
+            </div>
+            <!-- </> -->
+
+            <div class="container container-fluid py-5">
+                <div class="row justify-content-center align-items-center g-5">
+                    <div class="table-responsive-sm">
+                        <table class="table table-striped-columns
+                        table-hover	
+                        table-borderless
+                        table-primary
+                        align-middle">
+                            <thead class="table-light">
+                                <caption>Value Staged on Market</caption>
+                                <tr>
+                                    <th>Month</th>
+                                    <th>Value</th>
+                                    <th>State</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                                <tr class="table-primary">
+                                    <td scope="row">August</td>
+                                    <td>0.11%</td>
+                                    <td><span class="fa fa-arrow-down text-danger"></span></td>
+                                </tr>
+                                <tr class="table-primary">
+                                    <td scope="row">September</td>
+                                    <td>0.21</td>
+                                    <td><span class="fa fa-arrow-up text-success"></span></td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+    
+                            </tfoot>
+                        </table>
                     </div>
+    
                 </div>
-                <div class="card text-white bg-success text-center col-3">
-                    <span class="fa fa-2x fa-bezier-curve"></span>
-                    <div class="card-body">
-                        <h4 class="card-title">JNG</h4>
-                        <p class="card-text">
-                            <a href="#"></a>validate Token Sale</p>
-                    </div>
-                </div>
-                <div class="card text-white bg-dark text-center col-3">
-                    <span class="fa fa-2x fa-dog"></span>
-                    <div class="card-body">
-                        <h4 class="card-title">Dge</h4>
-                        <p class="card-text">
-                            <a href="#"></a>validate Token Sale</p>
-                    </div>
-                </div>
-                <!-- <div class="col">
-                    <div class="card bg-warning text-light">
-                        <span class="fab fa-bitcoin fa-10x "></span>
+                <div class="container row my-4">
+                    <div class="card col-md-3 col-6  text-white bg-secondary text-center my-1">
+                        <span class="fab fa-2x fa-ethereum"></span>
                         <div class="card-body">
-                            <h4 class="card-title">$19,727.80</h4>
-                            <p class="card-text">btc</p>
+                            <h4 class="card-title">Eth</h4>
+                            <p class="card-text">
+                                <a href="#"></a>validate Token Sale</p>
                         </div>
                     </div>
+                    <div class="card col-md-3 col-6 text-white bg-warning text-center my-1">
+                        <span class="fab fa-2x fa-bitcoin"></span>
+                        <div class="card-body">
+                            <h4 class="card-title">Btc</h4>
+                            <p class="card-text">
+                                <a href="#"></a>validate Token Sale</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-3 col-6 text-white bg-success text-center my-1">
+                        <span class="fa fa-2x fa-bezier-curve"></span>
+                        <div class="card-body">
+                            <h4 class="card-title">JNG</h4>
+                            <p class="card-text">
+                                <a href="#"></a>validate Token Sale</p>
+                        </div>
+                    </div>
+                    <div class="card col-md-3 col-6 text-white bg-dark text-center my-1">
+                        <span class="fa fa-2x fa-dog"></span>
+                        <div class="card-body">
+                            <h4 class="card-title">Dge</h4>
+                            <p class="card-text">
+                                <a href="#"></a>validate Token Sale</p>
+                        </div>
+                    </div>
+                    <!-- <div class="col">
+                        <div class="card bg-warning text-light">
+                            <span class="fab fa-bitcoin fa-10x "></span>
+                            <div class="card-body">
+                                <h4 class="card-title">$19,727.80</h4>
+                                <p class="card-text">btc</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
                 </div>
-            </div> -->
-            </div>
-            <div class="p-5 mb-4 bg-light rounded-3">
-                <div class="container-fluid py-5">
-                    <h1 class="display-5 fw-bold">Cromos Token</h1>
-                    <p class="col-md-8 fs-4">Offering discount for a better online a store can loyalty into Driving</p>
-                    <button class="btn btn-primary btn-lg" type="button"><a href="./finance.html" class="text-light text-decoration-none">Trade Now</a></button>
+                <div class="p-5 my-4 bg-light rounded-3">
+                    <div class="container-fluid py-5">
+                        <h1 class="display-5 fw-bold">Cromos Token</h1>
+                        <p class="col-md-8 fs-4">Offering discount for a better online a store can loyalty into Driving</p>
+                        <button class="btn btn-primary btn-lg" type="button"><a href="./finance.html" class="text-light text-decoration-none">Trade Now</a></button>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-7">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2 class="card-title">$0.76 </h2><span class="fa fa-long-arrow-alt-up text-success">0.21%</span>
-                                <p class="card-text lead">Market Cap</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="card-title">$0.76 </h2><span class="fa fa-long-arrow-alt-up text-success">0.21%</span>
+                                    <p class="card-text lead">Market Cap</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2 class="card-title">$964,765</h2><span class="fa fa-long-arrow-alt-up text-success">11.10%</span>
-                                <p class="card-text lead">Fully Diluted</p>
+                        <div class="col-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h2 class="card-title">$964,765</h2><span class="fa fa-long-arrow-alt-up text-success">11.10%</span>
+                                    <p class="card-text lead">Fully Diluted</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+    
             </div>
-
-        </div>
-        <div class="container">
-            <div class="accordion" id="accordionExample">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                Cromos Active Value 
-              </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            Rate Change Value Changes In Market
-                        </div>
-                        <div class="accordion-body">
-                            Intergrated To Supplementary Market based With Repository Based Influence
-                        </div>
-                        <div class="accordion-body">
-                            Rate Change Value Changes In Market
+            <div class="container">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Cromos Active Value 
+                  </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                Rate Change Value Changes In Market
+                            </div>
+                            <div class="accordion-body">
+                                Intergrated To Supplementary Market based With Repository Based Influence
+                            </div>
+                            <div class="accordion-body">
+                                Rate Change Value Changes In Market
+                            </div>
                         </div>
                     </div>
+    
                 </div>
-
             </div>
-        </div>
+    
+    
+    
+    
+            <div class="container">
+                <figure class="text-center">
+                    <blockquote class="blockquote">
+                        <p>The Market is a Place For All Than Comes</p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        Chionim kazaraki<cite title="Source Title">Japanease Cultural</cite>
+                    </figcaption>
+                </figure>
+            </div>
 
-
-
-
-        <div class="container">
-            <figure class="text-center">
-                <blockquote class="blockquote">
-                    <p>The Market is a Place For All Than Comes</p>
-                </blockquote>
-                <figcaption class="blockquote-footer">
-                    Chionim kazaraki<cite title="Source Title">Japanease Cultural</cite>
-                </figcaption>
-            </figure>
-        </div>
-
+            <!--============================================================== all element ends here ============================================================= -->
         </main>
     </div>
     <footer class="text-center text-muted my-2">
-        CromosToken &#169 2022
+        Cromos &#169 2022
     </footer>
-
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="./js/maths.js"></script>
@@ -286,6 +331,8 @@
     <script src="js/anychart-stock.min.js"></script>
     <script src="js/anychart-data-adapter.min.js"></script>
     <script src="./js/graph.js"></script>
+
+
 </body>
 
 </html>
