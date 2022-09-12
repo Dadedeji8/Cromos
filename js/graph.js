@@ -39,9 +39,11 @@ const d = new Date();
 let nameDate = month[d.getMonth()];
 console.log(typeof nameDate)
 
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
 
+updateValue = document.getElementById('updateValue')
 
-// updateValue = document.getElementById('updateValue')
 function addPoint() {
     // first index for new point
     newIndex = (data.mapAs().getRowsCount()) + 1;
@@ -57,7 +59,7 @@ function addPoint() {
     data.append({
         // x value
         // x: month + " " + newIndex,
-        x: nameDate,
+        x: nameDate + dd + "#" + newIndex,
         // random value from 1 to 100
         value: numValue
     });
