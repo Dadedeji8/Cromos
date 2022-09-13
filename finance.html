@@ -1,42 +1,42 @@
 <!-- frame -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cromos/project</title>
+    <title>Trade</title>
     <link rel="stylesheet" href="assets/fontawesome-icons/css/all.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link href="css/anychart-ui.min.css" rel="stylesheet" type="text/css" />
     <link href="css/anychart-font.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="top-nav">
-      <div class="logo">
-        <span><img src="./img/CM.png" alt="" height="40px" />Cromos</span>
-        <i class="fas fa-ellipsis-h" id="desktop-menu-btn"></i>
-      </div>
-      <div class="top-nav-time d-none d-sm-inline-flex">
-        <div class="time d-flex">
-          <span class="hms m-auto"></span>
-          <span class="ampm m-auto"></span>
+        <div class="logo">
+            <span><img src="./img/CM.png" alt="" height="40px" />Cromos</span>
+            <i class="fas fa-ellipsis-h" id="desktop-menu-btn"></i>
         </div>
-      </div>
-      <i class="fas fa-bell notification-icon"></i>
-      <i class="fas fa-cogs"></i>
-      <i class="fas fa-align-left mobile-menu-btn" id="mobile-menu-btn"></i>
+        <div class="top-nav-time d-none d-sm-inline-flex">
+            <div class="time d-flex">
+                <span class="hms m-auto"></span>
+                <span class="ampm m-auto"></span>
+            </div>
+        </div>
+        <i class="fas fa-bell notification-icon"></i>
+        <i class="fas fa-cogs"></i>
+        <i class="fas fa-align-left mobile-menu-btn" id="mobile-menu-btn"></i>
     </div>
 
     <div class="page-body-wrapper">
-      <div class="side-nav">
-        <ul>
-          <li>
-            <a href="dashboard.html"
-              ><i class="fas fa-tachometer-alt"></i>
+        <div class="side-nav">
+            <ul>
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i>
               <span class="nav-link-name"> Dashboard</span></a
             >
           </li>
@@ -74,7 +74,7 @@
         <div class="row my-4">
           <div class="col-md-12 d-flex justify-content-around">
             <div class="my-auto">
-              <span class="d-none d-sm-inline"> Victor Josiah </span>
+              <span class="d-none d-sm-inline"> User </span>
               <h1 class="head-text d-sm-inline head-text">Finance</h1>
             </div>
             <div>
@@ -131,44 +131,42 @@
         </div>
         <!-- </> -->
         <!-- <> -->
-        <div class="row chat-row">
+        <div class=" container text-center">
           <div class="col-12">
-            <div class="main-card full-main-car d">
-              <b>BTC-Cromos </b>
+            <div class="main-card full-main-card">
+              <b><h2>Trade</h2> </b>
               <div id="container-finance">
-                <div id="container"></div>
-                <input type="number" name="" id="cromos" />
-                <button type="submit" class="btn-danger rounded-3 m-auto">
-                  Sell Cromos
-                </button>
-              </div>
-              <div class="card text-white bg-secondary text-center col">
-                <span class="fab fa-2x fa-ethereum"></span>
-                <div class="card-body">
-                  <h4 class="card-title">Eth</h4>
-                  <p class="card-text"><a href="#"></a>validate Token Sale</p>
+
+                <div class="input-group mb-3">
+                  
+                  <input type="text" class="form-control" placeholder="Cromos" aria-label="Button" aria-describedby="">
+                  <button class="btn btn-outline-secondary" type="button" id="">Stop</button>
+                </div>
+                
+                <div class="input-group mb-3">
+                  
+                  <input type="text" class="form-control" placeholder="Cromos" aria-label="Button" aria-describedby="">
+                  <button class="btn btn-outline-secondary" type="button" id="">Amount</button>
+                </div>
+                <div class="btn-group m-auto" role="group" aria-label="Basic checkbox toggle button group">
+                  <input type="radio" class="btn-check" name="btnradio" id="btncheck1" autocomplete="off">
+                  <label class="btn btn-success w-100" for="btncheck1">  Long</label>
+                
+                  <input type="radio" class="btn-check" name="btnradio" id="btncheck2" autocomplete="off">
+                  <label class="btn btn-outline-danger" for="btncheck2">Short</label>
+                
+                  
                 </div>
               </div>
-              <div class="card text-white bg-warning text-center col">
-                <span class="fab fa-2x fa-bitcoin"></span>
-                <div class="card-body">
-                  <h4 class="card-title">Btc</h4>
-                  <p class="card-text"><a href="#"></a>validate Token Sale</p>
-                </div>
-              </div>
-              <div class="card text-white bg-success text-center col">
-                <span class="fa fa-2x fa-bezier-curve"></span>
-                <div class="card-body">
-                  <h4 class="card-title">JNG</h4>
-                  <p class="card-text"><a href="#"></a>validate Token Sale</p>
-                </div>
-              </div>
-            </div>
-          </div>
+              
         </div>
-        <!-- </> -->
-        <!--============================================================== all element ends here ============================================================= -->
-      </main>
+    </div>
+    </div>
+    </div>
+    </div>
+    <!-- </> -->
+    <!--============================================================== all element ends here ============================================================= -->
+    </main>
     </div>
 
     <script src="js/jquery/jquery.min.js"></script>
@@ -182,5 +180,6 @@
     <script src="js/anychart-stock.min.js"></script>
     <script src="js/anychart-data-adapter.min.js"></script>
     <script src="./js/graph.js"></script>
-  </body>
+</body>
+
 </html>
