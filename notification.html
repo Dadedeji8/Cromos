@@ -1,8 +1,7 @@
 <!-- frame -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,166 +10,169 @@
     <link rel="stylesheet" href="assets/fontawesome-icons/css/all.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-</head>
+    <script async type="module" src="./js/renderUserData.js"></script>
+  </head>
 
-<body>
+  <body>
     <div class="top-nav">
-        <div class="logo">
-            <span><img src="./img/CM.png" alt="" height="40px" />Cromos</span>
-            <i class="fas fa-ellipsis-h" id="desktop-menu-btn"></i>
+      <div class="logo">
+        <span><img src="./img/CM.png" alt="" height="40px" />Cromos</span>
+        <i class="fas fa-ellipsis-h" id="desktop-menu-btn"></i>
+      </div>
+      <div class="top-nav-time d-none d-sm-inline-flex">
+        <div class="time d-flex">
+          <span class="hms m-auto"></span>
+          <span class="ampm m-auto"></span>
         </div>
-        <div class="top-nav-time d-none d-sm-inline-flex">
-            <div class="time d-flex">
-                <span class="hms m-auto"></span>
-                <span class="ampm m-auto"></span>
-            </div>
-        </div>
-        <i class="fas fa-bell notification-icon"></i>
-        <i class="fas fa-user"><a href="./profile.html"></a></i>
-        <i class="fas fa-align-left mobile-menu-btn" id="mobile-menu-btn"></i>
+      </div>
+      <i class="fas fa-bell notification-icon"></i>
+      <i class="fas fa-user"><a href="./profile.html"></a></i>
+      <i class="fas fa-align-left mobile-menu-btn" id="mobile-menu-btn"></i>
     </div>
 
     <div class="page-body-wrapper">
-        <div class="side-nav">
-            <ul>
-                <li>
-                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i>
+      <div class="side-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html"
+              ><i class="fas fa-tachometer-alt"></i>
               <span class="nav-link-name"> Dashboard</span></a
             >
           </li>
           <li>
-            <a href="profile.html"> <i class="fas fa-user"></i> <span class="nav-link-name">Profile</span></a>
-                </li>
-                <li>
-                    <a href="notification.html">
-                        <i class="fas fa-book"></i>
-                        <span class="nav-link-name">Notifications</span></a>
-                </li>
-                <li>
-                    <a href="finance.html">
-                        <i class="fas fa-coins"></i>
-                        <span class="nav-link-name">Finance</span></a>
-                </li>
+            <a href="profile.html">
+              <i class="fas fa-user"></i>
+              <span class="nav-link-name">Profile</span></a
+            >
+          </li>
+          <li>
+            <a href="notification.html">
+              <i class="fas fa-book"></i>
+              <span class="nav-link-name">Notifications</span></a
+            >
+          </li>
+          <li>
+            <a href="finance.html">
+              <i class="fas fa-coins"></i>
+              <span class="nav-link-name">Finance</span></a
+            >
+          </li>
 
-                <li>
-                    <a href="login.html">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-link-name">Logout</span></a>
-                </li>
-            </ul>
-        </div>
-        <main class="main-dashboard-page">
-            <!--=========================================================== All element must be in here ===========================================================-->
+          <li>
+            <a href="login.html">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-link-name">Logout</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <main class="main-dashboard-page">
+        <!--=========================================================== All element must be in here ===========================================================-->
 
-            <!-- Notification pop up -->
-            <!-- <div class="notification-div">
+        <!-- Notification pop up -->
+        <!-- <div class="notification-div">
           <i class="fa fa-times close-notification" aria-hidden="true"></i>
           <div class="notification-message">Urgent Notification pop up</div>
         </div> -->
-            <!-- Notification pop up end -->
-            <!-- <> -->
-            <div class="row my-4">
-                <div class="col-md-12 d-flex justify-content-around">
-                    <div class="my-auto">
-                        <span class="d-none d-sm-inline"> Victor Josiah </span>
-                        <h1 class="head-text d-sm-inline head-text">Notification</h1>
-                    </div>
-                    <div>
-                        <!-- <button class="fancy-btn long-text"> -->
-                        <!-- <i class="fas fa-briefcase"></i> Projects Report -->
-                        <!-- </button> -->
-                    </div>
-                </div>
+        <!-- Notification pop up end -->
+        <!-- <> -->
+        <div class="row my-4">
+          <div class="col-md-12 d-flex justify-content-around">
+            <div class="my-auto">
+              <span id="userName"> Victor Josiah </span>
+              <h1 class="head-text d-sm-inline head-text">Notification</h1>
             </div>
-            <!-- </> -->
-            <!-- <> -->
-            <div class="container">
-                <style>
-                    table {
-                        border-collapse: collapse;
-                        border-spacing: 0;
-                        width: 80%;
-                        border: 1px solid #ddd;
-                        margin: auto;
-                    }
-                    
-                    .container {
-                        overflow: scroll;
-                        max-height: 300px;
-                        margin: auto;
-                    }
-                    
-                    th,
-                    td {
-                        text-align: left;
-                        padding: 16px;
-                    }
-                    
-                    tr:nth-child(even) {
-                        background-color: #f2f2f2;
-                    }
-                    
-                    h2 {
-                        text-align: center;
-                    }
-                </style>
+            <div></div>
+          </div>
+        </div>
+        <!-- </> -->
+        <!-- <> -->
+        <div class="container">
+          <style>
+            table {
+              border-collapse: collapse;
+              border-spacing: 0;
+              width: 80%;
+              border: 1px solid #ddd;
+              margin: auto;
+            }
 
-                <table>
-                    <tr>
-                        <th>Mail</th>
-                        <th>Date</th>
-                        <th>Statue</th>
-                    </tr>
-                    <tr>
-                        <td>8850 Cromos Token</td>
-                        <td>12/8/2022</td>
-                        <td>pending</td>
-                    </tr>
-                    <tr>
-                        <td>8850 Cromos Token</td>
-                        <td>12/8/2022</td>
-                        <td>pending</td>
-                    </tr>
-                    <tr>
-                        <td>8850 Cromos Token</td>
-                        <td>12/8/2022</td>
-                        <td><span class="text-danger">Denied</span></td>
-                    </tr>
-                    <tr>
-                        <td>8850 Cromos Token</td>
-                        <td>12/8/2022</td>
-                        <td><span class="text-success">Approved</span></td>
-                    </tr>
-                    <tr>
-                        <td>8850 Cromos Token</td>
-                        <td>12/8/2022</td>
-                        <td>pending</td>
-                    </tr>
-                    <tr>
-                        <td>8850 Cromos Token</td>
-                        <td>12/8/2022</td>
-                        <td>pending</td>
-                    </tr>
-                </table>
-            </div>
-            <!-- </> -->
+            .container {
+              overflow: scroll;
+              max-height: 300px;
+              margin: auto;
+            }
 
-            <div class="card border-danger m-auto w-100 w-md-75 my-5">
-                <div class="text-center h5">Last Transaction Statues</div>
-                <div class="card-body">
-                    <h4 class="card-title">450 cromos</h4>
-                    <p class="card-text text-success">Approved</p>
-                    <p class="card-text text-danger">Denied</p>
-                </div>
-            </div>
+            th,
+            td {
+              text-align: left;
+              padding: 16px;
+            }
 
-            <!--============================================================== all element ends here ============================================================= -->
-        </main>
+            tr:nth-child(even) {
+              background-color: #f2f2f2;
+            }
+
+            h2 {
+              text-align: center;
+            }
+          </style>
+
+          <table>
+            <tr>
+              <th>Mail</th>
+              <th>Date</th>
+              <th>Statue</th>
+            </tr>
+            <tr>
+              <td>8850 Cromos Token</td>
+              <td>12/8/2022</td>
+              <td>pending</td>
+            </tr>
+            <tr>
+              <td>8850 Cromos Token</td>
+              <td>12/8/2022</td>
+              <td>pending</td>
+            </tr>
+            <tr>
+              <td>8850 Cromos Token</td>
+              <td>12/8/2022</td>
+              <td><span class="text-danger">Denied</span></td>
+            </tr>
+            <tr>
+              <td>8850 Cromos Token</td>
+              <td>12/8/2022</td>
+              <td><span class="text-success">Approved</span></td>
+            </tr>
+            <tr>
+              <td>8850 Cromos Token</td>
+              <td>12/8/2022</td>
+              <td>pending</td>
+            </tr>
+            <tr>
+              <td>8850 Cromos Token</td>
+              <td>12/8/2022</td>
+              <td>pending</td>
+            </tr>
+          </table>
+        </div>
+        <!-- </> -->
+
+        <div class="card border-danger m-auto w-100 w-md-75 my-5">
+          <div class="text-center h5">Last Transaction Statues</div>
+          <div class="card-body">
+            <h4 class="card-title">450 cromos</h4>
+            <p class="card-text text-success">Approved</p>
+            <p class="card-text text-danger">Denied</p>
+          </div>
+        </div>
+
+        <!--============================================================== all element ends here ============================================================= -->
+      </main>
     </div>
 
     <script src="js/project.js"></script>
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
