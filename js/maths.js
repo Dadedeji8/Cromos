@@ -45,7 +45,7 @@ purchaseCromos.addEventListener("click", function () {
     wallet.style.display = "none";
   } else {
     alert(
-      "copy address generated and pay using your crypto app then return to dashboard"
+      "copy address generated and pay USD worth of CRM using your crypto app ,validate then return to dashboard"
     );
   }
 });
