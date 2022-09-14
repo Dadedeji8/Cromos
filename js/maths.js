@@ -76,9 +76,24 @@ function ValidateTransactionFunction() {
   formInput[0].value = accountName;
   formInput[1].value = virtualWalletAddress;
 }
+function toastNotification(message) {
+  // Get the snackbar DIV
+  var x = document.getElementById("snackbar");
+
+  // Add the "show" class to DIV
+  x.className = "show";
+
+  // add message
+  x.innerHTML = message;
+
+  // After 3 seconds, remove the show class from DIV
+  setTimeout(function () {
+    x.className = x.className.replace("show", "");
+  }, 3000);
+}
 document
   .querySelector("#requestConfirmation")
-  .addEventListener("submit", (e) => {
+  .addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const formInput = e.target;
@@ -87,16 +102,39 @@ document
       userName: formInput[0].value,
       price: dollar,
       quantity: cromos,
-      walletAddress: formInput[2].value,
+      walletAddress: formInput[1].value,
     };
 
-    // console.log(data);
+    console.log(data);
 
     document.querySelector("#closeValidateModal").click();
-    alert("request sent");
+    // alert("request sent");
+    const token = JSON.parse(Cookies.get("cromos_user")).token;
+    try {
+      const rawResponse = await fetch(
+        "https://cromos-token.herokuapp.com/api/request-confirmation",
+        // "http://localhost:5000/api/request-confirmation",
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            // Authorization:
+            //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1SWQiOiI2MzFkZmNlNjE4M2QyZDA5ZGEzNjk5ZTkiLCJwcml2aWxlZ2UiOjQsImlhdCI6MTY2MzE1Nzg3OH0.VB4hQ6L9EKjro25a8LedToKSV3P6ayqdSqEIHG47gtA",
+            Authorization: token,
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      const content = await rawResponse.json();
 
-    // if(cromos === 0)
-    // {
-    //     return alert('')
-    // }
+      console.log(content);
+      if (content.ok === false) {
+        return toastNotification(content.message);
+      }
+
+      toastNotification("Request Sent");
+    } catch (error) {
+      console.log(error);
+    }
   });
