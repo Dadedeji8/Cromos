@@ -763,10 +763,11 @@ footer {
     max-width: none;
   }
   .full-main-card.finance-div {
-    height: 530px;
+    height: auto;
+    padding-bottom: 20px;
   }
   .full-main-card {
-    height: 350px;
+    height: auto;
     margin: 15px auto;
   }
   .chat-row .full-main-card {
