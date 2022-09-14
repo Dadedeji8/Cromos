@@ -17,6 +17,8 @@
       <a href="index.html" class="fas fa-arrow-left"></a>
     </div>
     <main class="main-div">
+      <!-- The actual snackbar -->
+      <div id="snackbar">Some text some message..</div>
       <div class="form-div login-form">
         <h1 style="color: white">
           <i class="fas fa-address-book"></i> Sign-up
@@ -40,11 +42,11 @@
           </div>
           <div class="input-div">
             <label for="password"><i class="fa fa-key"></i></label>
-            <input type="password" id="password" placeholder="Repassword" />
+            <input type="password" id="repassword" placeholder="Repassword" />
           </div>
 
           <div>
-            <button class="form-btn" style="border-radius: 20px">
+            <button class="form-btn" type="submit" style="border-radius: 20px">
               <i class="fas fa-address-card"></i>
               Register
             </button>
@@ -60,5 +62,76 @@
   </body>
   <!-- cookies library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
-  <script src="./js/userAuth.jsS"></script>
+  <script src="./js/userAuth.js"></script>
+
+  <script>
+    async function registerFunction(e) {
+      e.preventDefault();
+
+      // console.log(e);
+      const formInput = e.target;
+
+      // if (formInput[0].value === "") {
+      //   return toastNotification("FullName is Empty");
+      // }
+      // if (formInput[1].value === "") {
+      //   return toastNotification("Email is Empty");
+      // }
+      // if (formInput[2].value === "") {
+      //   return toastNotification("Contact is Empty");
+      // }
+      // if (formInput[3].value === "") {
+      //   return toastNotification("Password is Empty");
+      // }
+      // if (formInput[3].value !== formInput[4].value) {
+      //   return toastNotification("Password not match");
+      // }
+      // console.dir(formInput)
+      const formData = {
+        fullName: formInput[0].value,
+        email: formInput[1].value,
+        phoneNumber: formInput[2].value,
+        password: formInput[3].value,
+        // na only admin you go add this privilege for
+        // "privilege": "2"
+      };
+
+      console.dir(formInput[5]);
+
+      // try {
+      //   const rawResponse = await fetch(
+      //     // "http://localhost:5000/api/user/register",
+      //     "https://cromos-token.herokuapp.com/api/user/register",
+      //     {
+      //       method: "POST",
+      //       headers: {
+      //         Accept: "application/json",
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify(formData),
+      //     }
+      //   );
+      //   const content = await rawResponse.json();
+
+      //   if (content.ok === false) {
+      //     toastNotification(content.message);
+      //     return;
+      //   }
+
+      //   toastNotification("Successful");
+      //   console.log(content);
+      //   // setTimeout(function () {
+      //   //   window.location.replace("/login.html");
+      //   // }, 1000);
+      // } catch (error) {
+      //   console.log(error + ".");
+      // }
+    }
+
+    // assign the function to listen to the submission of the register form
+
+    document
+      .getElementById("registerForm")
+      .addEventListener("submit", (e) => registerFunction(e));
+  </script>
 </html>
