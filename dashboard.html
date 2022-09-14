@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 
     <script async type="module">
-        // this is to check if you are login if no it will redirect you to the login page if( document.cookie.indexOf("cromos_user")
+        if( document.cookie.indexOf("cromos_user")
         < 0) { alert( "Account not Logged in, redirecting you."); location.href="./login.html" ; } async function getUserProfile() { const cromos_user=J SON.parse( Cookies.get( 'cromos_user')) const tokenArray=c romos_user.token.split( "."); const decode=J SON.parse(atob(tokenArray[1]));
             console.log( "token", decode); let headers={ Accept: "application/json", "Content-Type": "application/json", Authorization: cromos_user.token, }; // let apiUrl=` http://localhost:5000/api/userInfo/${decode.uId}`; let apiUrl=` https://cromos-token.herokuapp.com/api/userInfo/${decode.uId}`
             fetch(apiUrl, { headers }) .then((response)=>
@@ -152,16 +152,16 @@
                     <div class="card-body">
                         <h1 class="card-title ">Cromos Token</h4>
                             <p class="card-text lead">0.76 <span class="fa fa-arrow-up text-success "></span></p>
-                            <button class="btn btn-secondary rounded-pill">
+                            <button class="btn btn-secondary rounded-pill small">
                                 Mineable 
                         </button>
-                            <button class="btn btn-secondary rounded-pill">
+                            <button class="btn btn-secondary rounded-pill small">
                             poW
                     </button>
-                            <button class="btn btn-secondary rounded-pill">
+                            <button class="btn btn-secondary rounded-pill small">
                         Smart Contract 
                 </button>
-                            <button class="btn btn-secondary rounded-pill">
+                            <button class="btn btn-secondary rounded-pill small m-1">
                     Market 
             </button>
                     </div>
@@ -205,7 +205,7 @@
 
                 </div>
                 <div class="container row my-4 g-1">
-                    <div class="card col-md-3 col-6  text-white bg-secondary text-center my-1">
+                    <div class="card col-md-3 col-6  text-white bg-secondary text-center my-1 gap-1">
                         <span class="fab fa-2x fa-ethereum"></span>
                         <div class="card-body">
                             <h4 class="card-title">Eth</h4>
@@ -213,7 +213,7 @@
                                 <a href="#"></a>validate Token Sale</p>
                         </div>
                     </div>
-                    <div class="card col-md-3 col-6 text-white bg-warning text-center my-1">
+                    <div class="card col-md-3 col-6 text-white bg-warning text-center my-1 gap-1">
                         <span class="fab fa-2x fa-bitcoin"></span>
                         <div class="card-body">
                             <h4 class="card-title">Btc</h4>
@@ -221,7 +221,7 @@
                                 <a href="#"></a>validate Token Sale</p>
                         </div>
                     </div>
-                    <div class="card col-md-3 col-6 text-white bg-success text-center my-1">
+                    <div class="card col-md-3 col-6 text-white bg-success text-center my-1 gap-1">
                         <span class="fa fa-2x fa-bezier-curve"></span>
                         <div class="card-body">
                             <h4 class="card-title">JNG</h4>
@@ -229,7 +229,7 @@
                                 <a href="#"></a>validate Token Sale</p>
                         </div>
                     </div>
-                    <div class="card col-md-3 col-6 text-white bg-dark text-center my-1 m-1">
+                    <div class="card col-md-3 col-6 text-white bg-dark text-center my-1 gap-1">
                         <span class="fa fa-2x fa-dog"></span>
                         <div class="card-body">
                             <h4 class="card-title">Dge</h4>
