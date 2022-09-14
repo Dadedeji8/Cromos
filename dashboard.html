@@ -15,13 +15,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 
     <script async type="module">
-        if( document.cookie.indexOf("cromos_user")
-        < 0) { alert( "Account not Logged in, redirecting you."); location.href="./login.html" ; } async function getUserProfile() { const cromos_user=J SON.parse( Cookies.get( 'cromos_user')) const tokenArray=c romos_user.token.split( "."); const decode=J SON.parse(atob(tokenArray[1]));
-            console.log( "token", decode); let headers={ Accept: "application/json", "Content-Type": "application/json", Authorization: cromos_user.token, }; // let apiUrl=` http://localhost:5000/api/userInfo/${decode.uId}`; let apiUrl=` https://cromos-token.herokuapp.com/api/userInfo/${decode.uId}`
-            fetch(apiUrl, { headers }) .then((response)=>
-            response.json()) .then((data) => { // console.log("Success:", ); renderResults(data.data) if(data.ok){ Cookies.set( "cromos_user", JSON.stringify({ token: cromos_user.token, profile: data.data, }) ) console.log("check",JSON.parse(Cookies.get("cromos_user")))
-            } }) } function renderResults(result){ const {fullName} = result.userProfile const {amount} = result.userAccount document.getElementById("userName").innerHTML= fullName document.getElementById("profileAmount").innerHTML= amount } getUserProfile();
+       
+if (document.cookie.indexOf("cromos_user") < 0) {
+  alert("Account not Logged in, redirecting you.");
+  location.href = "./login.html";
+}
+async function getUserProfile() {
+  const cromos_user = JSON.parse(Cookies.get("cromos_user"));
+  const tokenArray = cromos_user.token.split(".");
+  const decode = JSON.parse(atob(tokenArray[1]));
 
+  console.log("token", decode);
+  let headers = {
+    Accept: "application/json",
+    "Content-Type": "application/json",
+    Authorization: cromos_user.token,
+  };
+  // let apiUrl=` http://localhost:5000/api/userInfo/${decode.uId}`;
+  let apiUrl = ` https://cromos-token.herokuapp.com/api/userInfo/${decode.uId}`;
+
+  fetch(apiUrl, { headers })
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log("Success:", );
+      renderResults(data.data);
+      if (data.ok) {
+        Cookies.set(
+          "cromos_user",
+          JSON.stringify({ token: cromos_user.token, profile: data.data })
+        );
+        console.log("check", JSON.parse(Cookies.get("cromos_user")));
+      }
+    });
+}
+function renderResults(result) {
+  const { fullName } = result.userProfile;
+  const { amount } = result.userAccount;
+  document.getElementById("userName").innerHTML = fullName;
+  document.getElementById("profileAmount").innerHTML = amount;
+}
+getUserProfile();
 
     </script>
 
@@ -51,20 +84,22 @@
         <div class="side-nav">
             <ul>
                 <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> <span class="nav-link-name">
-                Dashboard</span></a>
+                            Dashboard</span></a>
                 </li>
                 <li>
                     <a href="profile.html"> <i class="fas fa-user"></i> <span class="nav-link-name">Profile</span></a>
                 </li>
                 <li>
-                    <a href="notification.html"> <i class="fas fa-book"></i> <span class="nav-link-name">Notifications</span></a>
+                    <a href="notification.html"> <i class="fas fa-book"></i> <span
+                            class="nav-link-name">Notifications</span></a>
                 </li>
                 <li>
                     <a href="finance.html"> <i class="fas fa-coins"></i> <span class="nav-link-name">Finance</span></a>
                 </li>
 
                 <li>
-                    <a href="#" onclick="logoutFunction()"> <i class="fas fa-sign-out-alt"></i> <span class="nav-link-name">Logout</span></a>
+                    <a href="#" onclick="logoutFunction()"> <i class="fas fa-sign-out-alt"></i> <span
+                            class="nav-link-name">Logout</span></a>
                 </li>
             </ul>
         </div>
@@ -83,11 +118,11 @@
                     /* border: solid; */
                     height: 400px;
                 }
-                
+
                 .anychart-credits {
                     display: none;
                 }
-                
+
                 .amount {
                     border: solid 1px #ddd;
                     display: flex;
@@ -98,7 +133,7 @@
                     margin: 0;
                     padding: 0;
                 }
-                
+
                 .amount::before {
                     content: '$';
                     margin-right: 3px;
@@ -153,17 +188,17 @@
                         <h1 class="card-title ">Cromos Token</h4>
                             <p class="card-text lead">0.76 <span class="fa fa-arrow-up text-success "></span></p>
                             <button class="btn btn-secondary rounded-pill small">
-                                Mineable 
-                        </button>
+                                Mineable
+                            </button>
                             <button class="btn btn-secondary rounded-pill small">
-                            poW
-                    </button>
+                                poW
+                            </button>
                             <button class="btn btn-secondary rounded-pill small">
-                        Smart Contract 
-                </button>
+                                Smart Contract
+                            </button>
                             <button class="btn btn-secondary rounded-pill small m-1">
-                    Market 
-            </button>
+                                Market
+                            </button>
                     </div>
                 </div>
             </div>
@@ -210,7 +245,8 @@
                         <div class="card-body">
                             <h4 class="card-title">Eth</h4>
                             <p class="card-text">
-                                <a href="#"></a>validate Token Sale</p>
+                                <a href="#"></a>validate Token Sale
+                            </p>
                         </div>
                     </div>
                     <div class="card col-md-3 col-6 text-white bg-warning text-center my-1 gap-1">
@@ -218,7 +254,8 @@
                         <div class="card-body">
                             <h4 class="card-title">Btc</h4>
                             <p class="card-text">
-                                <a href="#"></a>validate Token Sale</p>
+                                <a href="#"></a>validate Token Sale
+                            </p>
                         </div>
                     </div>
                     <div class="card col-md-3 col-6 text-white bg-success text-center my-1 gap-1">
@@ -226,7 +263,8 @@
                         <div class="card-body">
                             <h4 class="card-title">JNG</h4>
                             <p class="card-text">
-                                <a href="#"></a>validate Token Sale</p>
+                                <a href="#"></a>validate Token Sale
+                            </p>
                         </div>
                     </div>
                     <div class="card col-md-3 col-6 text-white bg-dark text-center my-1 gap-1">
@@ -234,7 +272,8 @@
                         <div class="card-body">
                             <h4 class="card-title">Dge</h4>
                             <p class="card-text">
-                                <a href="#"></a>validate Token Sale</p>
+                                <a href="#"></a>validate Token Sale
+                            </p>
                         </div>
                     </div>
                     <!-- <div class="col">
@@ -251,8 +290,10 @@
                 <div class="p-5 my-4 bg-light rounded-3">
                     <div class="container-fluid py-5">
                         <h1 class="display-5 fw-bold">Cromos Token</h1>
-                        <p class="col-md-8 fs-4">Offering discount for a better online a store can loyalty into Driving</p>
-                        <button class="btn btn-primary btn-lg" type="button"><a href="./finance.html" class="text-light text-decoration-none">Trade Now</a></button>
+                        <p class="col-md-8 fs-4">Offering discount for a better online a store can loyalty into Driving
+                        </p>
+                        <button class="btn btn-primary btn-lg" type="button"><a href="./finance.html"
+                                class="text-light text-decoration-none">Trade Now</a></button>
                     </div>
                 </div>
             </div>
@@ -262,7 +303,8 @@
                         <div class="col-md-7">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2 class="card-title">$0.76 </h2><span class="fa fa-long-arrow-alt-up text-success">0.21%</span>
+                                    <h2 class="card-title">$0.76 </h2><span
+                                        class="fa fa-long-arrow-alt-up text-success">0.21%</span>
                                     <p class="card-text lead">Market Cap</p>
                                 </div>
                             </div>
@@ -270,7 +312,8 @@
                         <div class="col-4">
                             <div class="card">
                                 <div class="card-body">
-                                    <h2 class="card-title">$964,765</h2><span class="fa fa-long-arrow-alt-up text-success">11.10%</span>
+                                    <h2 class="card-title">$964,765</h2><span
+                                        class="fa fa-long-arrow-alt-up text-success">11.10%</span>
                                     <p class="card-text lead">Fully Diluted</p>
                                 </div>
                             </div>
@@ -283,11 +326,13 @@
                 <div class="accordion" id="accordionExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Cromos Active Value 
-                  </button>
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Cromos Active Value
+                            </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 Rate Change Value Changes In Market
                             </div>
