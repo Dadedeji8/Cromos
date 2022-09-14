@@ -83,69 +83,66 @@ document
   .addEventListener("submit", (e) => loginFunction(e));
 
 // =================================================== register function ==========================================
-async function registerFunction(e) {
-  e.preventDefault();
+// async function registerFunction(e) {
+//   e.preventDefault();
 
-  const formInput = e.target;
+//   console.log(e);
+//   // const formInput = e.target;
 
-  if (formInput[0].value === "") {
-    return console.log("FullName is Empty");
-  }
-  if (formInput[1].value === "") {
-    return console.log("Email is Empty");
-  }
-  if (formInput[2].value === "") {
-    return console.log("Contact is Empty");
-  }
-  if (formInput[3].value === "") {
-    return console.log("Password is Empty");
-  }
-  if (formInput[3].value !== formInput[4].value) {
-    return console.log("Password not match");
-  }
-  // console.dir(formInput)
-  const formData = {
-    email: "admin@gmail.com",
-    fullName: "User Account",
-    userName: "User test1",
-    phoneNumber: "07533913243",
-    password: "1234",
-    // na only admin you go add this privilege for
-    // "privilege": "2"
-  };
-
-  try {
-    const rawResponse = await fetch(
-      "https://cromos-token.herokuapp.com/api/user/register",
-      {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      }
-    );
-    const content = await rawResponse.json();
-
-    window.location.replace("/dashboard.html");
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-// assign the function to listen to the submission of the register form
-
-document
-  .getElementById("registerForm")
-  .addEventListener("submit", (e) => registerFunction(e));
-
-// document.getElementById("logoutButton").addEventListener("click", () => {
-//   // const ans = confirm("you will be loged out");
-//   // if (!ans) {
-//   //   return;
+//   // if (formInput[0].value === "") {
+//   //   return console.log("FullName is Empty");
 //   // }
-// });
+//   // if (formInput[1].value === "") {
+//   //   return console.log("Email is Empty");
+//   // }
+//   // if (formInput[2].value === "") {
+//   //   return console.log("Contact is Empty");
+//   // }
+//   // if (formInput[3].value === "") {
+//   //   return console.log("Password is Empty");
+//   // }
+//   // if (formInput[3].value !== formInput[4].value) {
+//   //   return console.log("Password not match");
+//   // }
+//   // // console.dir(formInput)
+//   // const formData = {
+//   //   email: formInput[0].value,
+//   //   fullName: formInput[1].value,
+//   //   phoneNumber: formInput[2].value,
+//   //   password: formInput[3].value,
+//   //   // na only admin you go add this privilege for
+//   //   // "privilege": "2"
+//   // };
+
+//   // console.log(formData);
+
+//   // try {
+//   //   const rawResponse = await fetch(
+//   //     "https://cromos-token.herokuapp.com/api/user/register",
+//   //     {
+//   //       method: "POST",
+//   //       headers: {
+//   //         Accept: "application/json",
+//   //         "Content-Type": "application/json",
+//   //       },
+//   //       body: JSON.stringify(formData),
+//   //     }
+//   //   );
+//   //   const content = await rawResponse.json();
+
+//   //   window.location.replace("/dashboard.html");
+//   // } catch (error) {
+//   //   console.log(error);
+//   // }
+// }
+
+// // assign the function to listen to the submission of the register form
+
+// document
+//   .getElementById("registerForm")
+//   .addEventListener("submit", (e) => registerFunction(e));
+
+// console.log(document.getElementById("registerForm"));
 
 function logoutFunction() {
   const ans = confirm("you will be loged out");
