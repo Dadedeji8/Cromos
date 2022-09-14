@@ -1,8 +1,7 @@
 <!-- frame -->
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,30 +10,55 @@
     <link rel="stylesheet" href="assets/fontawesome-icons/css/all.css" />
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/style.css" />
-</head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 
-<body>
+    <script async type="module">
+      //    this is to check if you are login if no it will redirect you to the login page
+      if (document.cookie.indexOf("cromos_user") < 0) {
+        alert("Account not Logged in, redirecting you");
+        location.href = "./login.html";
+      }
+      async function getUserProfile() {
+        const cromos_user = JSON.parse(Cookies.get("cromos_user"));
+
+        // place it in the DOM
+        document.getElementById("profileUserName").innerHTML =
+          cromos_user.profile.userProfile.userName || "Users Name";
+        document.getElementById("profileEmail").innerHTML =
+          cromos_user.profile.userProfile.email || "Email";
+        document.getElementById("profilePhoneNumber").innerHTML =
+          cromos_user.profile.userProfile.phoneNumber || "Phone Number";
+        document.getElementById("profileAmount").innerHTML =
+          `$${cromos_user.profile.userAccount.amount}` || "0";
+      }
+
+      getUserProfile();
+    </script>
+  </head>
+
+  <body>
     <div class="top-nav">
-        <div class="logo">
-            <span><img src="./img/CM.png" alt="" height="40px" />Cromos</span>
-            <i class="fas fa-ellipsis-h" id="desktop-menu-btn"></i>
+      <div class="logo">
+        <span><img src="./img/CM.png" alt="" height="40px" />Cromos</span>
+        <i class="fas fa-ellipsis-h" id="desktop-menu-btn"></i>
+      </div>
+      <div class="top-nav-time d-none d-sm-inline-flex">
+        <div class="time d-flex">
+          <span class="hms m-auto"></span>
+          <span class="ampm m-auto"></span>
         </div>
-        <div class="top-nav-time d-none d-sm-inline-flex">
-            <div class="time d-flex">
-                <span class="hms m-auto"></span>
-                <span class="ampm m-auto"></span>
-            </div>
-        </div>
-        <i class="fas fa-bell notification-icon"></i>
-        <i class="fas fa-user"><a href="./profile.html"></a></i>
-        <i class="fas fa-align-left mobile-menu-btn" id="mobile-menu-btn"></i>
+      </div>
+      <i class="fas fa-bell notification-icon"></i>
+      <i class="fas fa-user"><a href="./profile.html"></a></i>
+      <i class="fas fa-align-left mobile-menu-btn" id="mobile-menu-btn"></i>
     </div>
 
     <div class="page-body-wrapper">
-        <div class="side-nav">
-            <ul>
-                <li>
-                    <a href="dashboard.html"><i class="fas fa-tachometer-alt"></i>
+      <div class="side-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html"
+              ><i class="fas fa-tachometer-alt"></i>
               <span class="nav-link-name"> Dashboard</span></a
             >
           </li>
@@ -45,53 +69,61 @@
             >
           </li>
           <li>
-            <a href="profile.html"> <i class="fas fa-user"></i> <span class="nav-link-name">Profile</span></a>
-                </li>
+            <a href="profile.html">
+              <i class="fas fa-user"></i>
+              <span class="nav-link-name">Profile</span></a
+            >
+          </li>
 
-                <li>
-                    <a href="finance.html">
-                        <i class="fas fa-coins"></i>
-                        <span class="nav-link-name">Finance</span></a>
-                </li>
+          <li>
+            <a href="finance.html">
+              <i class="fas fa-coins"></i>
+              <span class="nav-link-name">Finance</span></a
+            >
+          </li>
 
-                <li>
-                    <a href="login.html">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="nav-link-name">Logout</span></a>
-                </li>
-            </ul>
+          <li>
+            <a href="login.html">
+              <i class="fas fa-sign-out-alt"></i>
+              <span class="nav-link-name">Logout</span></a
+            >
+          </li>
+        </ul>
+      </div>
+      <main class="main-dashboard-page">
+        <!--=========================================================== All element must be in here ===========================================================-->
+        <div class="main-card full-main-card text-center">
+          <img src="./img/1.png" alt="" class="rounded-circle p-2 m-3" /><br />
+          <input type="file" name="" id="" /> <br /><button
+            type="button"
+            class="btn btn-outline-primary"
+          >
+            Upload
+          </button>
+
+          <h1 id="profileUserName"></h1>
+          <h3 id="profileEmail"></h3>
+          <h3 id="profilePhoneNumber"></h3>
+          <h2 id="profileAmount">Wallet:$0.0</h2>
+          <button class="btn btn-outline-primary lead">
+            <a href="./login.html" class="text-decoration-none">Logout</a>
+          </button>
         </div>
-        <main class="main-dashboard-page">
-            <!--=========================================================== All element must be in here ===========================================================-->
-            <div class="main-card text-center">
-                <img src="./img/1.png" alt="" class="rounded-circle p-2 m-3"><br>
-                <input type="file" name="" id=""> <br><button type="button" class="btn btn-outline-primary">Upload</button>
 
-                <h1>User Name</h1>
-                <h3>Email:johnDoe@gmail.com</h3>
-                <h3>phone No:+18765434</h3>
-                <h2>
-                    Wallet:$0.0
-                </h2>
-                <button class="btn  btn-outline-primary lead"><a href="./login.html" class="text-decoration-none">Logout</a></button>
-            </div>
-
-            <!-- Notification pop up -->
-            <!-- <div class="notification-div">
+        <!-- Notification pop up -->
+        <!-- <div class="notification-div">
           <i class="fa fa-times close-notification" aria-hidden="true"></i>
           <div class="notification-message">Urgent Notification pop up</div>
         </div> -->
-            <!-- Notification pop up end -->
-            <!-- <> -->
+        <!-- Notification pop up end -->
+        <!-- <> -->
 
-
-            <!--============================================================== all element ends here ============================================================= -->
-        </main>
+        <!--============================================================== all element ends here ============================================================= -->
+      </main>
     </div>
 
     <script src="js/project.js"></script>
     <script src="js/jquery/jquery.min.js"></script>
     <script src="js/main.js"></script>
-</body>
-
+  </body>
 </html>
