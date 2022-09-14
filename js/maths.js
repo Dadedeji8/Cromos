@@ -11,13 +11,20 @@ notice.style.display = "none";
 let dollar = 0;
 let cromos = 0;
 let virtualWalletAddress = "141071434139";
+// this will be updated with the current value on the chart
+let currentCromosValue = 0.78;
 
 //conversion for cromos using  addCromos
 addCromos.addEventListener("click", function () {
-  console.log("i", cromos);
+  // get input value
+  let figure = document.querySelector("#cromosFinanceFigure").value;
+  // update cromos value
+  cromos = figure;
+  // calculate
+  dollar = cromos * currentCromosValue;
+  // round up
   const roundedNumber = Math.round((dollar + Number.EPSILON) * 100) / 100;
-  cromos += 1;
-  dollar = cromos * 0.78;
+  // render values
   dollarValue.textContent = `$ ${roundedNumber}`;
   cromsoValue.textContent = `${cromos} Cromos`;
 });
@@ -71,11 +78,8 @@ document
     e.preventDefault();
 
     const formInput = e.target;
-    //   get name from cookies
-    const accountId = JSON.parse(Cookies.get("cromos_user")).profile.userProfile
-      ._id;
+
     const data = {
-      userId: accountId,
       userName: formInput[0].value,
       price: dollar,
       quantity: cromos,
