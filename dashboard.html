@@ -14,49 +14,7 @@
     <link href="css/anychart-font.min.css" rel="stylesheet" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 
-    <script async type="module">
-       
-if (document.cookie.indexOf("cromos_user") < 0) {
-  alert("Account not Logged in, redirecting you.");
-  location.href = "./login.html";
-}
-async function getUserProfile() {
-  const cromos_user = JSON.parse(Cookies.get("cromos_user"));
-  const tokenArray = cromos_user.token.split(".");
-  const decode = JSON.parse(atob(tokenArray[1]));
-
-  console.log("token", decode);
-  let headers = {
-    Accept: "application/json",
-    "Content-Type": "application/json",
-    Authorization: cromos_user.token,
-  };
-  // let apiUrl=` http://localhost:5000/api/userInfo/${decode.uId}`;
-  let apiUrl = ` https://cromos-token.herokuapp.com/api/userInfo/${decode.uId}`;
-
-  fetch(apiUrl, { headers })
-    .then((response) => response.json())
-    .then((data) => {
-      // console.log("Success:", );
-      renderResults(data.data);
-      if (data.ok) {
-        Cookies.set(
-          "cromos_user",
-          JSON.stringify({ token: cromos_user.token, profile: data.data })
-        );
-        console.log("check", JSON.parse(Cookies.get("cromos_user")));
-      }
-    });
-}
-function renderResults(result) {
-  const { fullName } = result.userProfile;
-  const { amount } = result.userAccount;
-  document.getElementById("userName").innerHTML = fullName;
-  document.getElementById("profileAmount").innerHTML = amount;
-}
-getUserProfile();
-
-    </script>
+    <script async type="module" src="./js/renderUserData.js"> </script>
 
 </head>
 
@@ -128,10 +86,11 @@ getUserProfile();
                     display: flex;
                     justify-content: center;
                     font-weight: 700;
-                    width: 70px;
+                    min-width: 70px;
                     text-align: center;
                     margin: 0;
-                    padding: 0;
+                    padding: 0 6px;
+                    height: 25px;
                 }
 
                 .amount::before {
@@ -144,7 +103,7 @@ getUserProfile();
             <div class="row my-5">
                 <div class="col-md-12 d-flex justify-content-around">
                     <div class=""><span id="userName"></span>
-                        <h1 class="d-none d-sm-inline head-text">Dashboard</h1>
+                        <h1 class=" head-text">Dashboard</h1>
                     </div>
                     <div class="amount main-card" id="profileAmount"></div>
                 </div>
