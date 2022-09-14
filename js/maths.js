@@ -18,6 +18,10 @@ let currentCromosValue = 0.78;
 addCromos.addEventListener("click", function () {
   // get input value
   let figure = document.querySelector("#cromosFinanceFigure").value;
+
+  if (figure === "") {
+    return alert("Enter a figure");
+  }
   // update cromos value
   cromos = figure;
   // calculate
