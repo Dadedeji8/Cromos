@@ -43,14 +43,17 @@ async function loginFunction(e) {
     password: formInput[1].value,
   };
   try {
-    const rawResponse = await fetch("http://localhost:5000/api/user/login", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const rawResponse = await fetch(
+      "https://cromos-token.herokuapp.com/api/user/login",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     const content = await rawResponse.json();
 
     console.log(content);
@@ -61,7 +64,6 @@ async function loginFunction(e) {
       "cromos_user",
       JSON.stringify({
         token: content.token,
-        profile: content.user,
       })
       // , { expires: 365 }
     );
@@ -113,14 +115,17 @@ async function registerFunction(e) {
   };
 
   try {
-    const rawResponse = await fetch("http://localhost:5000/api/user/register", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    const rawResponse = await fetch(
+      "https://cromos-token.herokuapp.com/api/user/register",
+      {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      }
+    );
     const content = await rawResponse.json();
 
     window.location.replace("/dashboard.html");
@@ -134,3 +139,20 @@ async function registerFunction(e) {
 document
   .getElementById("registerForm")
   .addEventListener("submit", (e) => registerFunction(e));
+
+// document.getElementById("logoutButton").addEventListener("click", () => {
+//   // const ans = confirm("you will be loged out");
+//   // if (!ans) {
+//   //   return;
+//   // }
+// });
+
+function logoutFunction() {
+  const ans = confirm("you will be loged out");
+  if (!ans) {
+    return;
+  }
+  console.log("logout now");
+  Cookies.remove("cromos_user");
+  // window.location.replace("./login.html");
+}

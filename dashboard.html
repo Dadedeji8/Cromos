@@ -15,10 +15,63 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
 
     <script async type="module">
+                 //    this is to check if you are login if no it will redirect you to the login page
+if( document.cookie.indexOf("cromos_user") < 0) {
+    alert("Account not Logged in, redirecting you.");
+    location.href = "./login.html";
+}
 
-        // // this is to check if you are login if no it will redirect you to the login page // const cromos_user =JSON.parse( Cookies.get('cromos_user')) // if(cromos_user=== ""|| cromos_user === undefined){ // alert('No access, Login first') // window.location.replace('/login')
-        // // return // } // // place it in the DOM // document.getElementById("userName").innerHTML= cromos_user.profile.userName || "Users" // console.log("cromos_user", cromos_user)
+     async function getUserProfile() {
+         
+      const cromos_user= JSON.parse( Cookies.get('cromos_user'))
+        const tokenArray = cromos_user.token.split(".");
+    const decode = JSON.parse(atob(tokenArray[1]));
+
+        console.log("token", decode);
+
+        let headers = {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          Authorization: cromos_user.token,
+        };
+
+        // let apiUrl = `http://localhost:5000/api/userInfo/${decode.uId}`;
+        let apiUrl = `https://cromos-token.herokuapp.com/api/userInfo/${decode.uId}`
+
+        fetch(apiUrl, { headers })
+          .then((response) => response.json())
+          .then((data) => {
+            // console.log("Success:", );
+renderResults(data.data) 
+
+if(data.ok){
+                Cookies.set(
+      "cromos_user",
+      JSON.stringify({
+        token: cromos_user.token,
+        profile: data.data,
+      })  
+      ) 
+      
+      console.log("check",JSON.parse(Cookies.get("cromos_user")))
+    }
+})
+}
+
+function renderResults(result){
+const {fullName} = result.userProfile
+const {amount} = result.userAccount
+
+document.getElementById("userName").innerHTML= fullName
+document.getElementById("profileAmount").innerHTML= amount
+}
+
+
+      getUserProfile();
+
+
     </script>
+
 </head>
 
 <body>
@@ -58,7 +111,7 @@
                 </li>
 
                 <li>
-                    <a href="login.html"> <i class="fas fa-sign-out-alt"></i> <span class="nav-link-name">Logout</span></a>
+                    <a href="#" onclick="logoutFunction()"> <i class="fas fa-sign-out-alt"></i> <span class="nav-link-name">Logout</span></a>
                 </li>
             </ul>
         </div>
@@ -102,10 +155,10 @@
             <!--=========================================================== All element must be in here ===========================================================-->
             <div class="row my-5">
                 <div class="col-md-12 d-flex justify-content-around">
-                    <div class=""><span id="userName">UserName</span>
+                    <div class=""><span id="userName"></span>
                         <h1 class="d-none d-sm-inline head-text">Dashboard</h1>
                     </div>
-                    <div class="amount main-card">00.0</div>
+                    <div class="amount main-card" id="profileAmount"></div>
                 </div>
             </div>
             <!-- chart -->
@@ -328,8 +381,11 @@
     <script src="js/anychart-stock.min.js"></script>
     <script src="js/anychart-data-adapter.min.js"></script>
     <script src="./js/graph.js"></script>
+    <script src="./js/userAuth.js"></script>
 
-
+<script>
+        
+</script>
 </body>
 
 </html>
