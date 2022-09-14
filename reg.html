@@ -1,133 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="/img/CM.png">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/CM.png" />
     <title>Cromos Token</title>
     <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" href="assets/fontawesome-icons/css/all.css">
+    <link rel="stylesheet" href="assets/fontawesome-icons/css/all.css" />
 
-    <link rel="stylesheet" href="/css/style.css">
-</head>
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
 
-<body>
+  <body>
     <div class="back-btn">
-        <a href="index.html" class="fas fa-arrow-left"></a>
+      <a href="index.html" class="fas fa-arrow-left"></a>
     </div>
     <main class="main-div">
-        <div class="form-div login-form">
-            <h1 style="color: white;"> <i class="fas fa-address-book"></i> Sign-up</h1>
-            <form id="registerForm">
-                <div class="input-div">
-                    <label for="name"><i class="fas fa-user"></i></label>
-                    <input type="text" id="name" placeholder="Fullname">
+      <div class="form-div login-form">
+        <h1 style="color: white">
+          <i class="fas fa-address-book"></i> Sign-up
+        </h1>
+        <form id="registerForm">
+          <div class="input-div">
+            <label for="name"><i class="fas fa-user"></i></label>
+            <input type="text" id="name" placeholder="Fullname" />
+          </div>
+          <div class="input-div">
+            <label for="email"><i class="fas fa-at"></i></label>
+            <input type="email" id="email" placeholder="Email" />
+          </div>
+          <div class="input-div">
+            <label for="number"><i class="fas fa-phone-alt"></i></label>
+            <input type="number" id="number" placeholder="Contact" />
+          </div>
+          <div class="input-div">
+            <label for="password"><i class="fa fa-key"></i></label>
+            <input type="password" id="password" placeholder="Password" />
+          </div>
+          <div class="input-div">
+            <label for="password"><i class="fa fa-key"></i></label>
+            <input type="password" id="password" placeholder="Repassword" />
+          </div>
 
-                </div>
-                <div class="input-div">
-                    <label for="email"><i class="fas fa-at"></i></label>
-                    <input type="email" id="email" placeholder="Email">
+          <div>
+            <button class="form-btn" style="border-radius: 20px">
+              <i class="fas fa-address-card"></i>
+              Register
+            </button>
+          </div>
 
-                </div>
-                <div class="input-div">
-                    <label for="number"><i class="fas fa-phone-alt"></i></label>
-                    <input type="number" id="number" placeholder="Contact">
-
-                </div>
-                <div class="input-div">
-                    <label for="password"><i class="fa fa-key"></i></label>
-                    <input type="password" id="password" placeholder="Password">
-                </div>
-                <div class="input-div">
-                    <label for="password"><i class="fa fa-key"></i></label>
-                    <input type="password" id="password" placeholder="Repassword">
-                </div>
-
-                <div>
-                    <button class="form-btn" style="border-radius: 20px;">
-                        <i class="fas fa-address-card"></i>
-                        Register</button>
-                </div>
-
-                <p style="color: white;">
-                    Don't Have An Account? <a href="login.html">Login</a>
-                </p>
-        </div>
+          <p style="color: white">
+            Have An Account? <a href="login.html">Login</a>
+          </p>
         </form>
-        </div>
-        <div class="image-div">
-
-        </div>
+      </div>
+      <div class="image-div"></div>
     </main>
-
-</body>
-<!-- cookies library -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
-<script>
-
-    // function cookies() {
-    //     // // set a cookie
-    //     // Cookies.set('cookie_name', 'cookie_value', { expires: 365 });
-    //     // // get a cookie
-    //     // Cookies.get('cookie_name'); // => 'value'
-    //     // // delete a cookies
-    //     // Cookies.remove('cookie_name');
-    // }
-    async function registerFunction(e) {
-        e.preventDefault()
-
-        const formInput =  e.target
-
-        if (formInput[0].value === ""){
-            return console.log("FullName is Empty")
-        }
-        if (formInput[1].value === ""){
-            return console.log("Email is Empty")
-        }
-        if (formInput[2].value === ""){
-            return console.log("Contact is Empty")
-        }
-        if (formInput[3].value === ""){
-            return console.log("Password is Empty")
-        }
-        if (formInput[3].value !== formInput[4].value){
-            return console.log("Password not match")
-        }
-        // console.dir(formInput)
-        const formData = {
-            "email": "admin@gmail.com",
-            "fullName": "User Account",
-            "userName": "User test1",
-            "phoneNumber": "07533913243",
-            "password": "1234",
-            // na only admin you go add this privilege for
-            // "privilege": "2"
-        }
-
-        try {
-
-
-            const rawResponse = await fetch('http://localhost:5000/api/user/register', {
-                method: "POST",
-                headers: {
-                    Accept: "application/json",
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(formData),
-            });
-            const content = await rawResponse.json();
-
-            window.location.replace("/dashboard.html");
-        } catch (error) {
-
-            console.log(error);
-        }
-    }
-
-    document.getElementById('registerForm').addEventListener('submit', (e) => registerFunction(e))
-</script>
-
-
+  </body>
+  <!-- cookies library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/3.0.1/js.cookie.min.js"></script>
+  <script src="./js/userAuth.jsS"></script>
 </html>
